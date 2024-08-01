@@ -17,4 +17,4 @@ jobs:
       env:
         SSH_PRIVATE_KEY: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
       run: |
-        ssh -o StrictHostKeyChecking=no root@your_server_ip 'bash -s' < ./deploy.sh
+        ssh -o StrictHostKeyChecking=no root@139.59.244.109 'bash -s' < ./deploy.sh
