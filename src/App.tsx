@@ -1,12 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
 
-function App() {
+const H1 = styled.h1`
+  color: lightblue;
+  font-size: 4rem;
+`
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div>
+      <H1>I'm Ros - Software Developer</H1>
+      {/* <header className="App-header">
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -18,7 +22,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }
