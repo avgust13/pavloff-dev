@@ -13,8 +13,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Set up SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.DIGITALOCEAN_SSH_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H 139.59.244.109 >> ~/.ssh/known_hosts
+
     - name: Deploy to DigitalOcean
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
       run: |
         ssh -o StrictHostKeyChecking=no root@139.59.244.109 'bash -s' < ./deploy.sh
