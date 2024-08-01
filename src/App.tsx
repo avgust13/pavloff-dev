@@ -9,7 +9,7 @@ const H1 = styled.h1`
 const App = () => {
   return (
     <div>
-      <H1>I'm Ros - Software Developer!</H1>
+      <H1>I'm Ros - Software Developer!!</H1>
       {/* <header className="App-header">
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
