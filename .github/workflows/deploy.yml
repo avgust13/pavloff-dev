@@ -13,19 +13,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Print SSH private key (DO NOT DO THIS IN PRODUCTION)
-      run: echo "$SSH_PRIVATE_KEY"
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
-
-    - name: Set up SSH
-      uses: webfactory/ssh-agent@v0.5.3
-      with:
-        ssh-private-key: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
-
-    - name: Test SSH connection
-      run: ssh -vvv -o StrictHostKeyChecking=no root@139.59.244.109 'echo Connection successful'
-
     - name: Deploy to DigitalOcean
       env:
         SSH_PRIVATE_KEY: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
