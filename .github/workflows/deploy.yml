@@ -26,11 +26,16 @@ jobs:
     - name: Build the project
       run: yarn build
 
+    - name: Delete build folder on server
+      run: |
+        ssh -o StrictHostKeyChecking=no root@139.59.244.109 'bash -s' < ./scripts/delete-build-folder.sh
+      shell: bash
+
     - name: Copy build folder to server
       run: |
         scp -r ./.next root@139.59.244.109:/var/pavloff-dev/.next
 
-    - name: Deploy to DigitalOcean
+    - name: Restart DigitalOcean Web Server
       run: |
-        ssh -o StrictHostKeyChecking=no root@139.59.244.109 'bash -s' < ./deploy.sh
+        ssh -o StrictHostKeyChecking=no root@139.59.244.109 'bash -s' < ./scripts/restart.sh
       shell: bash
