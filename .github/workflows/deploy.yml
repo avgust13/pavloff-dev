@@ -26,6 +26,8 @@ jobs:
     - name: Build the project
       run: yarn build
 
+    - name: List files in the project
+      run: ls -a
 
     - name: Copy build folder to server
       run: |
