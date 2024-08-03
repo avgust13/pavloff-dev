@@ -26,7 +26,7 @@ export default function Home() {
           <CodeTag>pages/index.tsx</CodeTag>
         </Description> */}
 
-        <Cards />
+        {/* <Cards /> */}
       </Main>
     </Container>
   );
