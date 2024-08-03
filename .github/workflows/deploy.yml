@@ -26,15 +26,9 @@ jobs:
     - name: Build the project
       run: yarn build
 
-    - name: Get current directory
-      run: pwd
-
-    - name: List files in the project
-      run: ls -al
-
     - name: Copy build folder to server
       run: |
-        scp -r /home/runner/work/pavloff-dev/pavloff-dev/.next root@139.59.244.109:/var/pavloff-dev/.next
+        scp -r ./.next root@139.59.244.109:/var/pavloff-dev/.next
 
     - name: Deploy to DigitalOcean
       run: |
