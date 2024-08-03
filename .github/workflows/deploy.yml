@@ -34,7 +34,7 @@ jobs:
 
     - name: Copy build folder to server
       run: |
-        scp -r ./next ${{ secrets.DIGITALOCEAN_SSH_KEY }}@139.59.244.109:/var/pavloff-dev/.next
+        scp -r ./.next ${{ secrets.DIGITALOCEAN_SSH_KEY }}@139.59.244.109:/var/pavloff-dev/.next
 
     - name: Deploy to DigitalOcean
       run: |
