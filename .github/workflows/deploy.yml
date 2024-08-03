@@ -26,8 +26,11 @@ jobs:
     - name: Build the project
       run: yarn build
 
+    - name: Get current directory
+      run: pwd
+
     - name: List files in the project
-      run: ls -a
+      run: ls -al
 
     - name: Copy build folder to server
       run: |
