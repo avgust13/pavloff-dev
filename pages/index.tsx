@@ -18,7 +18,7 @@ export default function Home() {
       </Head>
       <Main>
         <Title>
-          - I'm Ros - Software Developer -
+          I'm Ros - Software Developer
         </Title>
 
         {/* <Description>
