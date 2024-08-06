@@ -1,3 +1,2 @@
 #!/bin/bash
-rm -rf /var/pavloff-dev
-mkdir /var/pavloff-dev
+rm -rf /var/pavloff-dev/build

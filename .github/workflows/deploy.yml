@@ -26,6 +26,10 @@ jobs:
     - name: Build the project
       run: yarn build
 
+    - name: Copy build scripts to server
+      run: |
+        scp -r ./scripts root@139.59.244.109:/var/pavloff-dev/scripts
+
     - name: Delete build folder on server
       run: |
         ssh -o StrictHostKeyChecking=no root@139.59.244.109 'bash -s' < ./scripts/delete-build-folder.sh
@@ -33,7 +37,7 @@ jobs:
 
     - name: Copy build folder to server
       run: |
-        scp -r ./.next root@139.59.244.109:/var/pavloff-dev
+        scp -r ./.next root@139.59.244.109:/var/pavloff-dev/build
 
     - name: Restart DigitalOcean Web Server
       run: |
