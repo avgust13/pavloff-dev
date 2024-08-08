@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.primary};
     font-weight: 700;
     font-size: 46px; 
+    margin: 0 0 30px 0;
   }
 
   a {
