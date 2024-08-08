@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import Title from "@/components/sections/title";
 
-const AboutSectionStyled = styled.div`
+const AboutSectionStyled = styled.section`
   margin: 0 100px;
 `;
 
@@ -12,7 +12,7 @@ const AboutStyled = styled.p`
 
 const AboutSection = () => {
   return (
-    <AboutSectionStyled>
+    <AboutSectionStyled id="about">
       <Title name="about" />
       <AboutStyled>
         Senior Full-Stack Software Developer with over 15 years of experience.

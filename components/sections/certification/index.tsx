@@ -4,7 +4,7 @@ import Title from "@/components/sections/title";
 
 import CertificateBlock from "./certificateblock";
 
-const CertificationSectionStyled = styled.div`
+const CertificationSectionStyled = styled.section`
   margin: 0 100px;
 `;
 
@@ -16,7 +16,7 @@ const CertificationContainerStyled = styled.div`
 
 const CertificationSection = () => {
   return (
-    <CertificationSectionStyled>
+    <CertificationSectionStyled id="certification">
       <Title name="certification" />
       <CertificationContainerStyled>
         <CertificateBlock name="Deep Learning with Tensorflow" month="Apr" year="2024" />
