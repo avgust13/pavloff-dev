@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const FooterStyled = styled.div`
-  padding: 20px 0 10px 0;
+  padding: 100px 0 10px 0;
   text-align: center;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.tertiary};
