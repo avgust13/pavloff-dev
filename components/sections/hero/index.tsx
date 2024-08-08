@@ -1,51 +1,43 @@
 import styled from "styled-components";
-import Link from "next/link";
-
-const FlexContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: column wrap;
-  max-width: 800px;
-  margin-top: 3rem;
-`;
-
-const Card = styled.div`
-  padding: 1.5rem;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid black;
-  border-radius: 10px;
-  transition:
-    color 0.15s ease,
-    border-color 0.15s ease;
-  width: 100%;
-
-  &:hover,
-  :focus,
-  :active {
-    color: #0070f3;
-    border-color: #0070f3;
-  }
-`;
-
-const StyledLink = styled(Link)`
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-`;
 
 const HeroSectionStyled = styled.div`
-  /* margin: 0 0 1rem 0;
-  font-size: 1.5rem; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px 100px 50px 100px;
 `;
+
+const WelcomeContailerStyled = styled.div`
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 100px;
+`;
+
+const SoftwareDeveloperTextStyled = styled.div`
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 56px;
+  color: ${({ theme }) => theme.colors.primary};
+`;
+
+const ProfileContainerStyled = styled.div``;
 
 const HeroSection = () => {
   return (
     <HeroSectionStyled>
-      Hello, I’m Ros,
-      Software Developer 
+      <WelcomeContailerStyled>
+        Hello, I'm Ros,
+        <SoftwareDeveloperTextStyled>
+          Software<br />Developer
+        </SoftwareDeveloperTextStyled>
+      </WelcomeContailerStyled>
+      <ProfileContainerStyled>
+        
+        <img src="/images/profile.png" alt="Ros Pavloff Profile" width={200} />
+
+      </ProfileContainerStyled>
     </HeroSectionStyled>
   );
-}
+};
 
 export default HeroSection;
