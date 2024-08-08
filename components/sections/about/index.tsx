@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 import Title from "@/components/sections/title";
 
-const AboutStyled = styled.p`
-  margin: 0 200px 50px 100px;
-`;
-
 const AboutSectionStyled = styled.div`
   margin: 0 100px;
+`;
+
+const AboutStyled = styled.p`
+  margin: 0 200px 50px 100px;
 `;
 
 const AboutSection = () => {
