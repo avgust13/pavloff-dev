@@ -12,8 +12,8 @@ const GlobalStyle = createGlobalStyle`
 
   h1 {
     color: ${({ theme }) => theme.colors.primary};
-    font-weight: 800;
-    font-size: 75px; 
+    font-weight: 700;
+    font-size: 46px; 
   }
 
   a {
