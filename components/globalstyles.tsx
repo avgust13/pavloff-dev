@@ -25,6 +25,20 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+
+  ::-webkit-scrollbar {
+      width: 12px; 
+      height: 12px; 
+  }
+
+  ::-webkit-scrollbar-track {
+      background: #383838;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background-color: ${({ theme }) => theme.colors.primary};
+      border-radius: 3px;
+  }
 `;
 
 export default GlobalStyle;
