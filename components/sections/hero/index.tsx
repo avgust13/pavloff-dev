@@ -46,7 +46,7 @@ const HeroSection = () => {
         </SoftwareDeveloperTextStyled>
       </WelcomeContailerStyled>
       <ProfileContainerStyled>
-        <img src="/images/profile.png" alt="Ros Pavloff Profile" width={200} />
+        <img src="/images/profile.png" alt="Ros Pavloff Profile" width={200} height={246} />
         <ContactInfoStyled>
           <a
             href="/Rostislavs-Pavlovs-Resume_CV-2024.8.pdf"
