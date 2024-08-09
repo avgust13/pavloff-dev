@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const HeroSectionStyled = styled.div`
+  height: 285px;
   display: flex;
   justify-content: space-between;
   align-items: center;
