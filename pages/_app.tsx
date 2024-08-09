@@ -2,6 +2,8 @@ import type { AppProps } from "next/app";
 import { ThemeProvider, type DefaultTheme } from "styled-components";
 import GlobalStyle from "@/components/globalstyles";
 
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 const theme: DefaultTheme = {
   colors: {
     primary: "#A6BBCC",
