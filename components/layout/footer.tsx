@@ -9,7 +9,7 @@ const FooterStyled = styled.div`
 
 const Footer = () => {
   return (
-    <FooterStyled>&copy; pavloff.dev {new Date().getFullYear()}</FooterStyled>
+    <FooterStyled>&copy; {new Date().getFullYear()} pavloff.dev</FooterStyled>
   );
 };
 
