@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 import styled from "styled-components";
 
 const CertificateBlockStyled = styled.div`
@@ -14,7 +14,7 @@ const CertificateBlockStyled = styled.div`
 
 const NameStyled = styled.h3`
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
   margin: 0;
 `;
 
