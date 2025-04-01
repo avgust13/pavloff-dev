@@ -10,6 +10,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   h1 {
     color: ${({ theme }) => theme.colors.primary};
     font-weight: 700;
