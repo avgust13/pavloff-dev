@@ -86,7 +86,7 @@ const ServiceDescriptionStyled = styled.p`
 
 const ServicesSection = () => {
   return (
-    <ServicesSectionStyled>
+    <ServicesSectionStyled id="services">
       <Title name="services" />
       <ServicesContainerStyled>
         {[
