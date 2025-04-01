@@ -6,6 +6,7 @@ import Footer from "@/components/layout/footer";
 
 import HeroSection from "@/components/sections/hero";
 import AboutSection from "@/components/sections/about";
+import ServicesSection from "@/components/sections/services";
 // import ExperienceSection from "@/components/sections/experience";
 import CertificationSection from "@/components/sections/certification";
 
@@ -32,6 +33,7 @@ export default function Home() {
         <Header />
         <HeroSection />
         <AboutSection />
+        <ServicesSection />
         {/* <ExperienceSection /> */}
         <CertificationSection />
         <Footer />
