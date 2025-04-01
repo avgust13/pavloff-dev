@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import Title from "@/components/sections/TitleSection";
 
-// import CertificateBlock from "./CertificateBlock";
+import CertificateBlock from "./certificateblock";
 
 const CertificationSectionStyled = styled.section`
   margin: 0 100px;

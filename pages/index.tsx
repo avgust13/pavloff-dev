@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { Container, Main } from "@/components/sharedstyles";
 
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
 
 import HeroSection from "@/components/sections/Hero";
 import AboutSection from "@/components/sections/About";
