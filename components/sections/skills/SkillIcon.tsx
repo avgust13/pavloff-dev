@@ -1,4 +1,5 @@
 import type React from "react";
+import type { FC } from "react";
 import * as SiIcons from "react-icons/si";
 import styled from "styled-components";
 
@@ -28,7 +29,14 @@ const IconLabel = styled.span`
   color: #a6bbcc;
 `;
 
-const SkillIcon: React.FC<SkillIconProps> = ({
+const FallbackLabel = styled.span`
+  font-size: 0.875rem;
+  color: #a6bbcc;
+  text-align: center;
+  padding: 12px;
+`;
+
+const SkillIcon: FC<SkillIconProps> = ({
   name,
   title,
   size = 40,
@@ -36,15 +44,16 @@ const SkillIcon: React.FC<SkillIconProps> = ({
 }) => {
   const IconComponent = SiIcons[name];
 
-  if (!IconComponent) {
-    console.warn(`Icon ${name} not found in react-icons/si`);
-    return null;
-  }
-
   return (
     <IconWrapper>
-      <IconComponent size={size} color={color} title={title || name} />
-      {title && <IconLabel>{title}</IconLabel>}
+      {IconComponent ? (
+        <>
+          <IconComponent size={size} color={color} title={title || name} />
+          {title && <IconLabel>{title}</IconLabel>}
+        </>
+      ) : (
+        <FallbackLabel>{title || name}</FallbackLabel>
+      )}
     </IconWrapper>
   );
 };
