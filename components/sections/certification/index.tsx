@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import Title from "@/components/sections/title";
+import Title from "@/components/sections/Title";
 
-import CertificateBlock from "./certificateblock";
+import CertificateBlock from "./CertificateBlock";
 
 const CertificationSectionStyled = styled.section`
   margin: 0 100px;

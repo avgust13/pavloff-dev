@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 
-import Title from "@/components/sections/title";
+import Title from "@/components/sections/Title";
 
 const ServicesSectionStyled = styled.div`
   margin: 0 100px;

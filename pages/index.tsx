@@ -1,15 +1,15 @@
 import Head from "next/head";
 import { Container, Main } from "@/components/sharedstyles";
 
-import Header from "@/components/layout/header";
-import Footer from "@/components/layout/footer";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
-import HeroSection from "@/components/sections/hero";
-import AboutSection from "@/components/sections/about";
-import SkillsSection from "@/components/sections/skills";
-import ServicesSection from "@/components/sections/services";
+import HeroSection from "@/components/sections/Hero";
+import AboutSection from "@/components/sections/About";
+import SkillsSection from "@/components/sections/Skills";
+import ServicesSection from "@/components/sections/Services";
 // import ExperienceSection from "@/components/sections/experience";
-import CertificationSection from "@/components/sections/certification";
+import CertificationSection from "@/components/sections/Certification";
 
 export default function Home() {
   return (

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-import Title from "@/components/sections/title";
+import Title from "@/components/sections/Title";
 
 const FlexContainer = styled.div`
   display: flex;
