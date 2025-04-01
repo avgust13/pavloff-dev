@@ -59,9 +59,9 @@ const Header = () => {
         <NavList>
           <NavItem><a href="#about">About</a></NavItem>
           {/* <NavItem><a href="#experience">Experience</a></NavItem> */}
-          <NavItem><a href="#skills">Skills</a></NavItem>
           <NavItem><a href="#services">Services</a></NavItem>
-          <NavItem><a href="#certification">Certification</a></NavItem>
+          <NavItem><a href="#skills">Skills</a></NavItem>
+          <NavItem><a href="#certifications">Certifications</a></NavItem>
         </NavList>
       </Nav>
     </HeaderStyled>
