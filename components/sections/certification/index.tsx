@@ -18,7 +18,7 @@ const CertificationSection = () => {
   return (
     <CertificationSectionStyled id="certifications">
       <Title name="certifications" />
-      <CertificationContainerStyled>sss
+      <CertificationContainerStyled>
         <CertificateBlock name="Deep Learning with Tensorflow" month="Apr" year="2024" />
         <CertificateBlock name="Deep Neural Networks with PyTorch" month="Apr" year="2024" />
         <CertificateBlock name="IBM AI Engineering Specialization" month="Apr" year="2024" />
