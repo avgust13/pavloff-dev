@@ -21,10 +21,10 @@ jobs:
         ssh-keyscan -H 139.59.244.109 >> ~/.ssh/known_hosts
 
     - name: Install dependencies
-      run: yarn install
+      run: npm install
 
     - name: Build the project
-      run: yarn build
+      run: npm build
 
     - name: Delete build folder on server
       run: |
