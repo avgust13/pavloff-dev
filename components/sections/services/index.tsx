@@ -40,7 +40,7 @@ const ServiceIconStyledTitleStyled = styled.div`
 
 const ServiceIconStyled = styled.span`
   font-size: 32px;
-  margin-right: 16px;
+  margin-left: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
