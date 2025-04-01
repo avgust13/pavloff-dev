@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Title from "@/components/sections/TitleSection";
+import Title from "@/components/sections/titlesection2";
 
 import SkillIcon from "./SkillIcon";
 

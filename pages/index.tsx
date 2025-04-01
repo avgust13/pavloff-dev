@@ -4,12 +4,12 @@ import { Container, Main } from "@/components/sharedstyles";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 
-import HeroSection from "@/components/sections/Hero";
-import AboutSection from "@/components/sections/About";
-import SkillsSection from "@/components/sections/Skills";
-import ServicesSection from "@/components/sections/Services";
+import HeroSection from "@/components/sections/hero";
+import AboutSection from "@/components/sections/about";
+import SkillsSection from "@/components/sections/skills";
+import ServicesSection from "@/components/sections/services";
 // import ExperienceSection from "@/components/sections/experience";
-import CertificationSection from "@/components/sections/Certification";
+import CertificationSection from "@/components/sections/certification";
 
 export default function Home() {
   return (

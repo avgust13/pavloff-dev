@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import Title from "@/components/sections/TitleSection";
+import Title from "@/components/sections/titlesection2";
 
 import CertificateBlock from "./certificateblock";
 

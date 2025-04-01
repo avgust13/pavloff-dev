@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import Title from "@/components/sections/TitleSection";
+import Title from "@/components/sections/titlesection2";
 
 const AboutSectionStyled = styled.section`
   margin: 0 100px;
