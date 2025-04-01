@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Title from "@/components/sections/Title";
+import Title from "@/components/sections/TitleSection";
 import SkillIcon from "./SkillIcon";
 
 const SkillsSectionStyled = styled.div`
