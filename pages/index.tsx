@@ -34,8 +34,8 @@ export default function Home() {
         <Header />
         <HeroSection />
         <AboutSection />
-        <SkillsSection />
         <ServicesSection />
+        <SkillsSection />
         <CertificationSection />
         <Footer />
       </Main>

@@ -16,8 +16,8 @@ const CertificationContainerStyled = styled.div`
 
 const CertificationSection = () => {
   return (
-    <CertificationSectionStyled id="certification">
-      <Title name="certification" />
+    <CertificationSectionStyled id="certifications">
+      <Title name="certifications" />
       <CertificationContainerStyled>
         <CertificateBlock name="Deep Learning with Tensorflow" month="Apr" year="2024" />
         <CertificateBlock name="Deep Neural Networks with PyTorch" month="Apr" year="2024" />
