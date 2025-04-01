@@ -4,7 +4,7 @@ import * as SiIcons from "react-icons/si";
 import styled from "styled-components";
 
 type SkillIconProps = {
-  name: keyof typeof SiIcons;
+  name: string | keyof typeof SiIcons;
   title?: string;
   size?: number;
   color?: string;
@@ -42,8 +42,8 @@ const SkillIcon: FC<SkillIconProps> = ({
   size = 40,
   color = "#A6BBCC",
 }) => {
-  const IconComponent = SiIcons[name];
-
+  const iconName = `Si${name}` as keyof typeof SiIcons;
+  const IconComponent = SiIcons[name as keyof typeof SiIcons] || SiIcons[iconName];
   return (
     <IconWrapper>
       {IconComponent ? (
