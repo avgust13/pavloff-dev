@@ -32,6 +32,10 @@ const DomainStyled = styled.span`
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const NavList = styled.ul`
