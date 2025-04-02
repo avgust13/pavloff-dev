@@ -8,12 +8,23 @@ const HeroSectionStyled = styled.section`
   justify-content: space-between;
   align-items: center;
   margin: 50px 100px 50px 100px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin: 30px 0 30px 0;
+    height: auto;
+    gap: 20px;
+  }
 `;
 
 const WelcomeContainerStyled = styled.div`
   font-size: 16px;
   font-weight: 500;
   margin-left: 100px;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
 `;
 
 const SoftwareDeveloperTextStyled = styled.div`
@@ -21,6 +32,11 @@ const SoftwareDeveloperTextStyled = styled.div`
   font-weight: 800;
   line-height: 56px;
   color: ${({ theme }) => theme.colors.primary};
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    line-height: 20px;
+  }
 `;
 
 const ProfileContainerStyled = styled.div``;
