@@ -3,8 +3,9 @@ import Image from "next/image";
 
 import Title from "@/components/sections/titlesection";
 
-const ServicesSectionStyled = styled.div`
-  margin: 0 100px;
+const ServicesSectionStyled = styled.section`
+  max-width: 900px;
+  width: 100%;
 `;
 
 const ServicesContainerStyled = styled.div`

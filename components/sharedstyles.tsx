@@ -9,8 +9,13 @@ const Container = styled.div`
   height: 100vh;
   min-height: 100vh;
 `;
+
 const Main = styled.main`
-  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
 `;
 
 const Title = styled.h1`

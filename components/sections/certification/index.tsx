@@ -5,7 +5,8 @@ import Title from "@/components/sections/titlesection";
 import CertificateBlock from "./certificateblock";
 
 const CertificationSectionStyled = styled.section`
-  margin: 0 100px;
+  max-width: 900px;
+  width: 100%;
 `;
 
 const CertificationContainerStyled = styled.div`

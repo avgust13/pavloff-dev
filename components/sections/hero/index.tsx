@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-const HeroSectionStyled = styled.div`
+const HeroSectionStyled = styled.section`
+  max-width: 900px;
+  width: 100%;
   height: 285px;
   display: flex;
   justify-content: space-between;
@@ -8,7 +10,7 @@ const HeroSectionStyled = styled.div`
   margin: 50px 100px 50px 100px;
 `;
 
-const WelcomeContailerStyled = styled.div`
+const WelcomeContainerStyled = styled.div`
   font-size: 16px;
   font-weight: 500;
   margin-left: 100px;
@@ -38,14 +40,14 @@ const ContactInfoStyled = styled.div`
 const HeroSection = () => {
   return (
     <HeroSectionStyled>
-      <WelcomeContailerStyled>
+      <WelcomeContainerStyled>
         Hello, I'm Ros,
         <SoftwareDeveloperTextStyled>
           Software
           <br />
           Developer
         </SoftwareDeveloperTextStyled>
-      </WelcomeContailerStyled>
+      </WelcomeContainerStyled>
       <ProfileContainerStyled>
         <img src="/images/profile.png" alt="Ros Pavloff Profile" width={200} height={246} />
         <ContactInfoStyled>

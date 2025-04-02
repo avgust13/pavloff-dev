@@ -3,8 +3,9 @@ import Title from "@/components/sections/titlesection";
 
 import SkillIcon from "./SkillIcon";
 
-const SkillsSectionStyled = styled.div`
-  margin: 0 100px;
+const SkillsSectionStyled = styled.section`
+  max-width: 900px;
+  width: 100%;
 `;
 
 const SkillCategoryGridStyled = styled.div`

@@ -14,6 +14,15 @@ const TitleSectionStyled = styled.div`
   }
 `;
 
+const TitleStyled = styled.h1`
+  font-size: 46px;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+    margin: 0;
+  }
+`;
+
 interface TitleSectionProps {
   name: string;
 }
@@ -21,7 +30,7 @@ interface TitleSectionProps {
 const TitleSection: FC<TitleSectionProps> = ({ name }) => {
   return (
     <TitleSectionStyled>
-      <h1>{name}</h1>
+      <TitleStyled>{name}</TitleStyled>
     </TitleSectionStyled>
   );
 }

@@ -12,6 +12,11 @@ const HeaderStyled = styled.div`
   background-color: #221F1F;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+
+  @media (max-width: 768px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `;
 
 const BrandContainerStyled = styled.div`

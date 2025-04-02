@@ -36,10 +36,10 @@ const StyledLink = styled(Link)`
   font-size: 1.5rem;
 `;
 
-const ExperienceSectionStyled = styled.div`
-  margin: 0 100px;
-  /* margin: 0 0 1rem 0;
-  font-size: 1.5rem; */
+const ExperienceSectionStyled = styled.section`
+  max-width: 900px;
+  width: 100%;
+
 `;
 
 const ExperienceSection = () => {
