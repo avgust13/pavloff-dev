@@ -68,7 +68,7 @@ const HeroSection = () => {
         <img src="/images/profile.png" alt="Ros Pavloff Profile" width={200} height={246} />
         <ContactInfoStyled>
           <a
-            href="/Rostislavs-Pavlovs-Resume_CV-2024.8.pdf"
+            href="/Rostislavs-Pavlovs-Resume_CV-2025.5.pdf"
             target="_blank"
           >
             <i className="bi-filetype-pdf"></i>
