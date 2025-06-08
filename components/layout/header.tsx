@@ -66,11 +66,11 @@ const Header = () => {
       <BrandContainerStyled>pavloff<DomainStyled>.dev</DomainStyled></BrandContainerStyled>
       <Nav>
         <NavList>
-          <NavItem><a href="#about">About</a></NavItem>
-          {/* <NavItem><a href="#experience">Experience</a></NavItem> */}
-          <NavItem><a href="#services">Services</a></NavItem>
-          <NavItem><a href="#skills">Skills</a></NavItem>
-          <NavItem><a href="#certifications">Certifications</a></NavItem>
+          <NavItem><a href="/#about">About</a></NavItem>
+          <NavItem><a href="/ai-automation">AI Automation</a></NavItem>
+          <NavItem><a href="/#services">Services</a></NavItem>
+          <NavItem><a href="/#skills">Skills</a></NavItem>
+          <NavItem><a href="/#certifications">Certifications</a></NavItem>
         </NavList>
       </Nav>
     </HeaderStyled>
