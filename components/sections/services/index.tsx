@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+import Link from "next/link";
 
 import Title from "@/components/sections/titlesection";
 
@@ -15,7 +16,6 @@ const ServicesContainerStyled = styled.div`
   margin-bottom: 40px;
 `;
 
-
 const ServiceCard = styled.div`
   background-color: #f5f5f514;
   border-radius: 8px;
@@ -29,6 +29,34 @@ const ServiceCard = styled.div`
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+const ServiceCardLink = styled.div`
+  background-color: #f5f5f514;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  &::after {
+    content: "Learn More →";
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    font-size: 12px;
+    color: #667eea;
+    font-weight: 600;
   }
 `;
 
@@ -86,132 +114,163 @@ const ServiceDescriptionStyled = styled.p`
 `;
 
 const ServicesSection = () => {
+  const services = [
+    {
+      id: 1,
+      title: "Full-Stack & Enterprise Software Development",
+      icon: "/icons/dev.png",
+      items: [
+        {
+          subtitle: "Custom Web & Mobile Applications",
+          description:
+            "Design, development, and maintenance of secure, scalable applications using modern frameworks (.NET, React, Angular, Node.js).",
+        },
+        {
+          subtitle: "Cloud & Microservices Architecture",
+          description:
+            "Transform legacy systems into cloud-native, microservices-based architectures for improved scalability and performance.",
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: "AI & Machine Learning Solutions",
+      icon: "/icons/ai.png",
+      items: [
+        {
+          subtitle: "Custom AI/ML Model Development",
+          description:
+            "Build and deploy tailored machine learning models for predictive analytics, personalization, and process automation using TensorFlow, PyTorch, and Keras.",
+        },
+        {
+          subtitle: "Data Analytics & Predictive Modeling",
+          description:
+            "Leverage big data to derive actionable insights and optimize business operations through advanced analytics.",
+        },
+      ],
+    },
+    {
+      id: 3,
+      title: "AI Automation for SMBs",
+      icon: "/icons/automation.png",
+      link: "/ai-automation",
+      items: [
+        {
+          subtitle: "Business Process Automation",
+          description:
+            "Automate repetitive tasks, customer support, and workflows using n8n and AI. Save 75% of manual work time.",
+        },
+        {
+          subtitle: "Smart Integration Solutions",
+          description:
+            "Connect all your business tools and eliminate manual data transfer. 24/7 automation that scales with your business.",
+        },
+      ],
+    },
+    {
+      id: 4,
+      title: "Computer Vision Solutions",
+      icon: "/icons/vision.png",
+      items: [
+        {
+          subtitle: "Image & Video Processing",
+          description:
+            "Develop systems for object detection, image recognition, and real-time video analytics to automate inspection, monitoring, and quality control tasks.",
+        },
+        {
+          subtitle: "Custom Vision Applications",
+          description:
+            "Create tailored computer vision solutions for industries such as retail, manufacturing, and security.",
+        },
+      ],
+    },
+    {
+      id: 5,
+      title: "Algorithmic Trading Systems",
+      icon: "/icons/trading.png",
+      items: [
+        {
+          subtitle: "Automated Trading Algorithms",
+          description:
+            "Design and implement high-performance, data-driven trading systems that analyze real-time market data to execute trades efficiently.",
+        },
+        {
+          subtitle: "Quantitative Analysis & Strategy Optimization",
+          description:
+            "Utilize AI and statistical methods to develop, test, and optimize trading strategies, ensuring robust risk management.",
+        },
+      ],
+    },
+    {
+      id: 6,
+      title: "Blockchain & Decentralized Applications (dApps)",
+      icon: "/icons/blockchain.png",
+      items: [
+        {
+          subtitle: "Blockchain Integration & dApp Development",
+          description:
+            "Develop decentralized applications and integrate blockchain technologies (Ethereum, EOS, NEO) for secure, transparent, and innovative solutions.",
+        },
+      ],
+    },
+    {
+      id: 7,
+      title: "Consultation & Technical Leadership",
+      icon: "/icons/management.png",
+      items: [
+        {
+          subtitle: "Technical Strategy & Architecture",
+          description:
+            "Provide expert consultation on software architecture, team management, and process optimization to ensure robust, future-proof systems.",
+        },
+        {
+          subtitle: "Team Leadership & Project Management",
+          description:
+            "Leverage extensive experience in leading cross-functional teams to drive project success and innovation.",
+        },
+      ],
+    },
+  ];
+
   return (
     <ServicesSectionStyled id="services">
       <Title name="services" />
       <ServicesContainerStyled>
-        {[
-          {
-            id: 1,
-            title: "Full-Stack & Enterprise Software Development",
-            icon: "/icons/dev.png",
-            items: [
-              {
-                subtitle: "Custom Web & Mobile Applications",
-                description:
-                  "Design, development, and maintenance of secure, scalable applications using modern frameworks (.NET, React, Angular, Node.js).",
-              },
-              {
-                subtitle: "Cloud & Microservices Architecture",
-                description:
-                  "Transform legacy systems into cloud-native, microservices-based architectures for improved scalability and performance.",
-              },
-            ],
-          },
-          {
-            id: 2,
-            title: "AI & Machine Learning Solutions",
-            icon: "/icons/ai.png",
-            items: [
-              {
-                subtitle: "Custom AI/ML Model Development",
-                description:
-                  "Build and deploy tailored machine learning models for predictive analytics, personalization, and process automation using TensorFlow, PyTorch, and Keras.",
-              },
-              {
-                subtitle: "Data Analytics & Predictive Modeling",
-                description:
-                  "Leverage big data to derive actionable insights and optimize business operations through advanced analytics.",
-              },
-            ],
-          },
-          {
-            id: 3,
-            title: "Computer Vision Solutions",
-            icon: "/icons/vision.png",
-            items: [
-              {
-                subtitle: "Image & Video Processing",
-                description:
-                  "Develop systems for object detection, image recognition, and real-time video analytics to automate inspection, monitoring, and quality control tasks.",
-              },
-              {
-                subtitle: "Custom Vision Applications",
-                description:
-                  "Create tailored computer vision solutions for industries such as retail, manufacturing, and security.",
-              },
-            ],
-          },
-          {
-            id: 4,
-            title: "Algorithmic Trading Systems",
-            icon: "/icons/trading.png",
-            items: [
-              {
-                subtitle: "Automated Trading Algorithms",
-                description:
-                  "Design and implement high-performance, data-driven trading systems that analyze real-time market data to execute trades efficiently.",
-              },
-              {
-                subtitle: "Quantitative Analysis & Strategy Optimization",
-                description:
-                  "Utilize AI and statistical methods to develop, test, and optimize trading strategies, ensuring robust risk management.",
-              },
-            ],
-          },
-          {
-            id: 5,
-            title: "Blockchain & Decentralized Applications (dApps)",
-            icon: "/icons/blockchain.png",
-            items: [
-              {
-                subtitle: "Blockchain Integration & dApp Development",
-                description:
-                  "Develop decentralized applications and integrate blockchain technologies (Ethereum, EOS, NEO) for secure, transparent, and innovative solutions.",
-              },
-            ],
-          },
-          {
-            id: 6,
-            title: "Consultation & Technical Leadership",
-            icon: "/icons/management.png",
-            items: [
-              {
-                subtitle: "Technical Strategy & Architecture",
-                description:
-                  "Provide expert consultation on software architecture, team management, and process optimization to ensure robust, future-proof systems.",
-              },
-              {
-                subtitle: "Team Leadership & Project Management",
-                description:
-                  "Leverage extensive experience in leading cross-functional teams to drive project success and innovation.",
-              },
-            ],
-          },
-        ].map((service) => (
-          <ServiceCard key={service.id}>
-            <ServiceIconStyledTitleStyled>
-              <ServiceTitleStyled>{service.title}</ServiceTitleStyled>
-              <ServiceIconStyled>
-                <Image
-                  src={service.icon}
-                  alt={service.title}
-                  width={48}
-                  height={48}
-                />
-              </ServiceIconStyled>
-            </ServiceIconStyledTitleStyled>
-            <ServiceItemsStyled>
-              {service.items.map((item, index) => (
-                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                <ServiceItemStyled key={index}>
-                  <ServiceSubtitleStyled>{item.subtitle}</ServiceSubtitleStyled>
-                  <ServiceDescriptionStyled>{item.description}</ServiceDescriptionStyled>
-                </ServiceItemStyled>
-              ))}
-            </ServiceItemsStyled>
-          </ServiceCard>
-        ))}
+        {services.map((service) => {
+          const ServiceComponent = service.link ? ServiceCardLink : ServiceCard;
+          const content = (
+            <>
+              <ServiceIconStyledTitleStyled>
+                <ServiceTitleStyled>{service.title}</ServiceTitleStyled>
+                <ServiceIconStyled>
+                  <Image
+                    src={service.icon}
+                    alt={service.title}
+                    width={48}
+                    height={48}
+                  />
+                </ServiceIconStyled>
+              </ServiceIconStyledTitleStyled>
+              <ServiceItemsStyled>
+                {service.items.map((item, index) => (
+                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                  <ServiceItemStyled key={index}>
+                    <ServiceSubtitleStyled>{item.subtitle}</ServiceSubtitleStyled>
+                    <ServiceDescriptionStyled>{item.description}</ServiceDescriptionStyled>
+                  </ServiceItemStyled>
+                ))}
+              </ServiceItemsStyled>
+            </>
+          );
+
+          return service.link ? (
+            <Link href={service.link} key={service.id} passHref>
+              <ServiceComponent>{content}</ServiceComponent>
+            </Link>
+          ) : (
+            <ServiceComponent key={service.id}>{content}</ServiceComponent>
+          );
+        })}
       </ServicesContainerStyled>
     </ServicesSectionStyled>
   );
