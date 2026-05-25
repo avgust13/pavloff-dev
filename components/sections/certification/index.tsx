@@ -20,6 +20,12 @@ const CertificationSection = () => {
     <CertificationSectionStyled id="certifications">
       <Title name="certifications" />
       <CertificationContainerStyled>
+        <CertificateBlock name="Building with the Claude API" month="May" year="2026" />
+        <CertificateBlock name="AI Fluency Framework & Foundations" month="May" year="2026" />
+        <CertificateBlock name="Claude Code in Action" month="Apr" year="2026" />
+        <CertificateBlock name="Introduction to Claude Cowork" month="Apr" year="2026" />
+        <CertificateBlock name="Claude Code 101" month="Apr" year="2026" />
+        <CertificateBlock name="Claude 101" month="Apr" year="2026" />
         <CertificateBlock name="Deep Learning with Tensorflow" month="Apr" year="2024" />
         <CertificateBlock name="Deep Neural Networks with PyTorch" month="Apr" year="2024" />
         <CertificateBlock name="IBM AI Engineering Specialization" month="Apr" year="2024" />
