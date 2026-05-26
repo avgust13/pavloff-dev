@@ -8,10 +8,17 @@ const SkillsSectionStyled = styled.section`
   width: 100%;
 `;
 
+const SubheadingStyled = styled.p`
+  font-size: 18px;
+  line-height: 1.5;
+  color: ${({ theme }) => theme.colors.tertiary};
+  margin: 0 0 30px 0;
+`;
+
 const SkillCategoryGridStyled = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 40px;
+  gap: 24px;
   margin-bottom: 60px;
 `;
 
@@ -25,7 +32,7 @@ const CategoryCardStyled = styled.div`
 const CategoryTitleStyled = styled.h3`
   color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 20px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   padding-left: 10px;
   border-left: 4px solid ${({ theme }) => theme.colors.primary};
@@ -34,84 +41,67 @@ const CategoryTitleStyled = styled.h3`
 const SkillsContainerStyled = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
-  padding: 0 20px;
+  gap: 18px;
+  padding: 0 10px;
 `;
 
 const SkillsSection = () => {
   const skillsByCategory = {
-    "Frontend Development": [
-      { name: "SiReact", title: "React" },
-      { name: "SiTypescript", title: "TypeScript" },
-      { name: "SiAngular", title: "Angular" },
-      { name: "SiVuedotjs", title: "Vue.js" },
+    "AI Stack": [
+      { name: "Anthropic", title: "Claude API" },
+      { name: "Openai", title: "OpenAI" },
+      { name: "N8N", title: "n8n" },
+      { name: "Langchain", title: "LangChain" },
+      { name: "Tensorflow", title: "TensorFlow" },
+      { name: "Pytorch", title: "PyTorch" },
+      { name: "Scikitlearn", title: "scikit-learn" },
     ],
-    "Backend Development": [
-      { name: "SiNodedotjs", title: "Node.js" },
-      { name: "SiPython", title: "Python" },
-      { name: "SiDotnet", title: ".NET" },
-      { name: "SiGoland", title: "Golang" },
-      { name: "SiCplusplus", title: "C++" },
-      { name: "SiSolidity", title: "Solidity" },
+    "Backend & Infra": [
+      { name: "Nodedotjs", title: "Node.js" },
+      { name: "Python", title: "Python" },
+      { name: "Dotnet", title: ".NET" },
+      { name: "Postgresql", title: "PostgreSQL" },
+      { name: "Mongodb", title: "MongoDB" },
+      { name: "Redis", title: "Redis" },
+      { name: "Docker", title: "Docker" },
+      { name: "Kubernetes", title: "Kubernetes" },
+      { name: "Googlecloud", title: "GCP" },
+      { name: "Microsoftazure", title: "Azure" },
     ],
-    "AI & Machine Learning": [
-      { name: "SiTensorflow", title: "TensorFlow" },
-      { name: "SiPytorch", title: "PyTorch" },
-      { name: "SiJupyter", title: "Jupyter" },
-      { name: "SiKeras", title: "Keras" },
-      { name: "SiScikitlearn", title: "scikit-learn" },
+    Frontend: [
+      { name: "React", title: "React" },
+      { name: "Typescript", title: "TypeScript" },
+      { name: "Nextdotjs", title: "Next.js" },
+      { name: "Angular", title: "Angular" },
     ],
-    "Databases & Storage": [
-      { name: "SiPostgresql", title: "PostgreSQL" },
-      { name: "SiMysql", title: "MySQL" },
-      { name: "SiMongodb", title: "MongoDB" },
-      { name: "SiRedis", title: "Redis" },
-      { name: "SiFirebase", title: "Firebase" },
-    ],
-    "Cloud & DevOps": [
-      { name: "SiGooglecloud", title: "GCP" },
-      { name: "SiMicrosoftazure", title: "Azure" },
-      { name: "SiKubernetes", title: "Kubernetes" },
-      { name: "SiDocker", title: "Docker" },
-      { name: "SiGit", title: "Git" },
-      { name: "SiGithub", title: "GitHub" },
-      { name: "SiGitlab", title: "GitLab" },
-      { name: "SiLinux", title: "Linux" },
-      { name: "SiJira", title: "Jira" },
-    ],
-    "API & Integration": [
-      { name: "SiGraphql", title: "GraphQL" },
-      { name: "SiRabbitmq", title: "RabbitMQ" },
-      { name: "SiMqtt", title: "MQTT" },
-      { name: "SiOpenapi", title: "REST API" },
-      { name: "SiGrpc", title: "gRPC" },
-    ],
-    "Testing & Quality": [
-      { name: "SiJest", title: "Jest" },
-      { name: "SiSelenium", title: "Selenium" },
-      { name: "SiPuppeteer", title: "Puppeteer" },
-      { name: "SiPlaywright", title: "Playwright" },
-      { name: "SiPostman", title: "Postman" },
-    ],
-    "Design & Collaboration": [
-      { name: "SiFigma", title: "Figma" },
-      { name: "SiAdobexd", title: "XD" },
-      { name: "SiNotion", title: "Notion" },
-      { name: "SiSlack", title: "Slack" },
-      { name: "SiFfmpeg", title: "FFmpeg" },
+    "Quality & Ops": [
+      { name: "Playwright", title: "Playwright" },
+      { name: "Jest", title: "Jest" },
+      { name: "Githubactions", title: "GitHub Actions" },
+      { name: "Graphql", title: "GraphQL" },
+      { name: "Openapi", title: "REST" },
+      { name: "Grpc", title: "gRPC" },
     ],
   };
 
   return (
     <SkillsSectionStyled id="skills">
-      <Title name="skills" />
+      <Title name="stack" />
+      <SubheadingStyled>
+        The stack I work with daily. Not a CV checklist — these are the tools I
+        actually reach for when shipping.
+      </SubheadingStyled>
       <SkillCategoryGridStyled>
         {Object.entries(skillsByCategory).map(([category, skills]) => (
           <CategoryCardStyled key={category}>
             <CategoryTitleStyled>{category}</CategoryTitleStyled>
             <SkillsContainerStyled>
               {skills.map((skill) => (
-                <SkillIcon key={skill.name} name={skill.name} title={skill.title} />
+                <SkillIcon
+                  key={skill.name}
+                  name={skill.name}
+                  title={skill.title}
+                />
               ))}
             </SkillsContainerStyled>
           </CategoryCardStyled>

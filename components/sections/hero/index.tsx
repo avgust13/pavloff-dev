@@ -3,92 +3,147 @@ import styled from "styled-components";
 const HeroSectionStyled = styled.section`
   max-width: 900px;
   width: 100%;
-  height: 285px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 50px 100px 50px 100px;
+  gap: 60px;
+  margin: 60px 100px 70px 100px;
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    margin: 30px 0 30px 0;
-    height: auto;
-    gap: 20px;
+    flex-direction: column-reverse;
+    margin: 30px 0 40px 0;
+    gap: 30px;
   }
 `;
 
-const WelcomeContainerStyled = styled.div`
-  font-size: 16px;
-  font-weight: 500;
+const CopyContainerStyled = styled.div`
   margin-left: 100px;
+  max-width: 600px;
 
   @media (max-width: 768px) {
     margin-left: 0;
   }
 `;
 
-const SoftwareDeveloperTextStyled = styled.div`
-  font-size: 52px;
+const EyebrowStyled = styled.div`
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.tertiary};
+  margin-bottom: 16px;
+`;
+
+const HeadlineStyled = styled.h1`
+  font-size: 44px;
   font-weight: 800;
-  line-height: 56px;
+  line-height: 1.1;
   color: ${({ theme }) => theme.colors.primary};
+  margin: 0 0 22px 0;
 
   @media (max-width: 768px) {
-    font-size: 24px;
-    line-height: 20px;
+    font-size: 30px;
   }
 `;
 
-const ProfileContainerStyled = styled.div``;
+const SubheadlineStyled = styled.p`
+  font-size: 17px;
+  line-height: 1.55;
+  color: ${({ theme }) => theme.colors.tertiary};
+  margin: 0 0 32px 0;
 
-const ContactInfoStyled = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 5px;
-
-  a {
-    margin: 0 7px;
-    color: ${({ theme }) => theme.colors.tertiary};
-    font-size: 18px;
+  strong {
+    color: ${({ theme }) => theme.colors.secondary};
+    font-weight: 600;
   }
+`;
+
+const CtaRowStyled = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+`;
+
+const PrimaryCtaStyled = styled.a`
+  display: inline-block;
+  padding: 14px 26px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: #221F1F;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(166, 187, 204, 0.25);
+  }
+`;
+
+const SecondaryCtaStyled = styled.a`
+  font-size: 15px;
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.secondary};
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-bottom-color: ${({ theme }) => theme.colors.secondary};
+  }
+`;
+
+const MicrocopyStyled = styled.p`
+  font-size: 13px;
+  line-height: 1.5;
+  color: ${({ theme }) => theme.colors.tertiary};
+  margin: 0;
+  max-width: 520px;
+  opacity: 0.8;
+`;
+
+const ProfileContainerStyled = styled.div`
+  flex-shrink: 0;
 `;
 
 const HeroSection = () => {
   return (
     <HeroSectionStyled>
-      <WelcomeContainerStyled>
-        Hello, I'm Ros,
-        <SoftwareDeveloperTextStyled>
-          Software
-          <br />
-          Developer
-        </SoftwareDeveloperTextStyled>
-      </WelcomeContainerStyled>
+      <CopyContainerStyled>
+        <EyebrowStyled>Ros Pavloff &middot; Senior AI Engineer</EyebrowStyled>
+        <HeadlineStyled>
+          Ship your AI product &mdash; or hire the senior engineer to lead the team that will.
+        </HeadlineStyled>
+        <SubheadlineStyled>
+          I work with founders two ways: as your <strong>Fractional AI CTO</strong>{" "}
+          ($3&ndash;8K/mo, hands-on technical leadership) or by{" "}
+          <strong>building your AI MVP in 90 days</strong> (fixed scope, fixed price).
+          15+ years shipping production software. Anthropic-certified on Claude APIs and agentic workflows.
+        </SubheadlineStyled>
+        <CtaRowStyled>
+          <PrimaryCtaStyled href="mailto:avgust13@gmail.com?subject=Strategy%20call%20request">
+            Let&apos;s talk &mdash; book a 30-min call
+          </PrimaryCtaStyled>
+          <SecondaryCtaStyled href="#services">
+            See how I work &rarr;
+          </SecondaryCtaStyled>
+        </CtaRowStyled>
+        <MicrocopyStyled>
+          No pitch deck. We&apos;ll map your idea or your current product in 30 minutes, and
+          you&apos;ll leave with at least one concrete next step &mdash; whether or not we
+          work together.
+        </MicrocopyStyled>
+      </CopyContainerStyled>
       <ProfileContainerStyled>
-        <img src="/images/profile.png" alt="Ros Pavloff Profile" width={200} height={246} />
-        <ContactInfoStyled>
-          <a
-            href="/Rostislavs-Pavlovs-Resume_CV-2025.5.pdf"
-            target="_blank"
-          >
-            <i className="bi-filetype-pdf"></i>
-          </a>
-          <a href="mailto:avgust13@gmail.com" target="_blank">
-            <i className="bi-envelope-at"></i>
-          </a>
-          <a href="https://t.me/rosoff" target="_blank">
-            <i className="bi-telegram"></i>
-          </a>{" "}
-          <a href="https://wa.me/37127754455" target="_blank">
-            <i className="bi-whatsapp"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/ros-pavloff" target="_blank">
-            <i className="bi-linkedin"></i>
-          </a>
-          <a href="https://github.com/avgust13" target="_blank">
-            <i className="bi-github"></i>
-          </a>
-        </ContactInfoStyled>
+        <img
+          src="/images/profile.png"
+          alt="Ros Pavloff Profile"
+          width={200}
+          height={246}
+        />
       </ProfileContainerStyled>
     </HeroSectionStyled>
   );
