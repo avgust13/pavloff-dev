@@ -151,7 +151,7 @@ const Footer = () => {
         </ColumnStyled>
       </ColumnsStyled>
       <BottomBarStyled>
-        <span>&copy; {new Date().getFullYear()} pavloff.dev</span>.
+        <span>&copy; {new Date().getFullYear()} pavloff.dev</span>
       </BottomBarStyled>
     </FooterStyled>
   );
