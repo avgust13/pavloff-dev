@@ -1,41 +1,35 @@
-name: Deploy to Prod
+name: Deploy to Vultr
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-pavloff
+  cancel-in-progress: true
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
 
-    - name: Set up SSH
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.DIGITALOCEAN_SSH_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -H 139.59.244.109 >> ~/.ssh/known_hosts
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build the project
-      run: npm build
-
-    - name: Delete build folder on server
-      run: |
-        ssh -o StrictHostKeyChecking=no root@139.59.244.109 'bash -s' < ./scripts/delete-build-folder.sh
-      shell: bash
-
-    - name: Copy build folder to server
-      run: |
-        scp -r ./.next root@139.59.244.109:/var/pavloff-dev/.next
-
-    - name: Restart DigitalOcean Web Server
-      run: |
-        ssh -o StrictHostKeyChecking=no root@139.59.244.109 'bash -s' < ./scripts/restart.sh
-      shell: bash
+      - name: Rsync out/ to server
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/id_ed25519" \
+            out/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_PATH }}/
