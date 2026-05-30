@@ -71,7 +71,7 @@ const AboutSection = () => {
   const tiles = [
     {
       heading: "I've shipped, not just studied AI.",
-      body: "15 years building production systems before AI became hype. I know what breaks at scale, what investors look for in the codebase, and what a $20/mo OpenAI bill becomes at 10,000 users.",
+      body: "Two decades building production systems before AI became the hype. I know what breaks at scale, what investors look for in the codebase, and what a $20/mo OpenAI bill becomes at 10,000 users.",
     },
     {
       heading: "I speak founder, not just engineer.",

@@ -103,15 +103,15 @@ const FinalCtaSection = () => {
         step. If we&apos;re a fit, we talk about working together.
       </BodyStyled>
       <ButtonRowStyled>
-        <PrimaryButtonStyled href="mailto:avgust13@gmail.com?subject=Strategy%20call%20request">
-          Email me &mdash; avgust13@gmail.com
-        </PrimaryButtonStyled>
-        <SecondaryButtonStyled
-          href="https://wa.me/37127754455"
+        <PrimaryButtonStyled
+          href="https://calendar.app.google/q7FtHB7b8GAqKkQA6"
           target="_blank"
           rel="noopener noreferrer"
         >
-          WhatsApp &mdash; +371 27 75 44 55
+          Book a 30-min call
+        </PrimaryButtonStyled>
+        <SecondaryButtonStyled href="mailto:avgust13@gmail.com?subject=Strategy%20call%20request">
+          Email me instead
         </SecondaryButtonStyled>
       </ButtonRowStyled>
       <TrustLineStyled>

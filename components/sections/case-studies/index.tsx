@@ -120,36 +120,36 @@ const CaseStudiesSection = () => {
   const cases: CaseStudy[] = [
     {
       id: 1,
-      title: "AI-Powered Document Intelligence",
-      tags: ["LegalTech", "Series A", "US"],
+      title: "Compatibot — Agentic Product-Recommendation Platform",
+      tags: ["Agentic AI", "OpenAI Agents SDK", "Sole technical owner"],
       problem:
-        "Team manually reviewed 800+ legal documents/month, capping growth. A previous GPT-3.5 attempt hallucinated case citations.",
+        "The founder needed an AI assistant that could reason about complex product compatibility — not just keyword-match — and guide buyers to the right combination, with no in-house engineering team to build it.",
       solution:
-        "Claude-based RAG pipeline with citation verification, hybrid search (PGVector + BM25), and human-in-the-loop QA for low-confidence outputs.",
+        "Designed and deployed an agentic workflow on OpenAI's Agents SDK with multi-step reasoning and dynamic product suggestions, on a modular stack (React, Node.js, Python, PostgreSQL, MongoDB, Strapi CMS, Redis, n8n). I owned everything — architecture, CI/CD, and cloud deployment — as the sole technical owner.",
       result:
-        "92% review-time reduction. False citation rate dropped from 14% to under 0.5%. Roughly $18K/month saved in paralegal hours. Now serving 6× document volume with the same headcount.",
+        "Took the product from zero to a working agentic recommendation engine, then ran it as sole technical owner for a year of iteration. The assistant resolved multi-step compatibility questions that previously needed a human expert, and n8n pipelines kept the catalog in sync with no manual data entry.",
     },
     {
       id: 2,
-      title: "AI MVP for B2B Sales Intelligence",
-      tags: ["SaaS", "Pre-seed", "EU"],
+      title: "IMly.ai — AI Writing Assistant (Chrome Extension)",
+      tags: ["AI MVP", "Non-technical founder", "Chrome extension"],
       problem:
-        "Non-technical founder with a 12-week deadline to demo to a strategic partner. No engineering team.",
+        "A non-technical founder had an idea for an AI writing assistant but no engineering team — and a narrow window to get a real product in front of users.",
       solution:
-        "Claude + n8n agentic stack scraping public signals, scoring accounts, and drafting outreach. Deployed on Vercel + Supabase so the founder operates it solo.",
+        "Built the full product from scratch, solo: a React extension, Node.js backend, and PostgreSQL + Redis data layer, with OpenAI APIs powering rewriting, translation, spell-check, OCR, and smart replies. Set up CI/CD and observability so it could scale from day one.",
       result:
-        "Shipped on week 10. Demo closed a $45K LOI. Founder used the working product to raise pre-seed two months later.",
+        "Shipped a production AI Chrome extension in under five months as the only engineer, working directly with the founder. Five AI features in one tool, deployed with logging and monitoring so the founder could onboard users without firefighting.",
     },
     {
       id: 3,
-      title: "Trading Signal Execution Engine",
-      tags: ["Algorithmic Trading", "Growth-stage", "US"],
+      title: "Voltbox24 — EU E-commerce Storefront",
+      tags: ["E-commerce", "Solo build", "2-month launch"],
       problem:
-        "Quants wrote logic in notebooks; nothing ran reliably in production. 30% of signals were missed in live markets.",
+        "A retailer needed a full EU-facing online store — catalog, checkout, payments, multi-language — live within a two-month window, with no in-house engineering.",
       solution:
-        "Event-driven Python execution engine with strict latency budgets, structured logging, and a backtesting/paper-trading parity harness.",
+        "Designed and shipped voltbox24.eu end-to-end, solo: a React storefront and admin on a Node.js backend, with payments, order management, and multi-language support, plus CI/CD, hosting, monitoring, and SEO foundations.",
       result:
-        "Sub-100ms signal-to-execution latency. Missed signals dropped to under 2%. Team now ships new strategies in days, not months.",
+        "Launched EU-wide inside the two-month window as the sole engineer — from requirements and architecture through deployment and post-launch support. Catalog browsing, search, and checkout tuned for speed across the EU.",
     },
   ];
 
@@ -157,7 +157,8 @@ const CaseStudiesSection = () => {
     <CaseStudiesSectionStyled id="case-studies">
       <Title name="recent work" />
       <SubheadingStyled>
-        Anonymized to respect NDAs. References available after our second call.
+        Real products I architected and shipped — most as the sole engineer or
+        technical lead.
       </SubheadingStyled>
       <CasesGridStyled>
         {cases.map((c) => (
@@ -186,8 +187,8 @@ const CaseStudiesSection = () => {
         ))}
       </CasesGridStyled>
       <ReferencesNoteStyled>
-        Names withheld by request. Happy to connect you with a reference once we
-        agree it&apos;s a serious fit.
+        Want the detail? I&apos;ll walk you through the architecture, the
+        trade-offs, and what I&apos;d do differently — on our call.
       </ReferencesNoteStyled>
     </CaseStudiesSectionStyled>
   );

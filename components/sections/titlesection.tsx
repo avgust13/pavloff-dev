@@ -14,8 +14,11 @@ const TitleSectionStyled = styled.div`
   }
 `;
 
-const TitleStyled = styled.h1`
+const TitleStyled = styled.h2`
+  color: ${({ theme }) => theme.colors.primary};
+  font-weight: 700;
   font-size: 46px;
+  margin: 0 0 30px 0;
 
   @media (max-width: 768px) {
     font-size: 36px;

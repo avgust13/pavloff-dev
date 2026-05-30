@@ -89,7 +89,6 @@ const Footer = () => {
           <FooterLinkStyled href="/#services">AI MVP (90 days)</FooterLinkStyled>
           <FooterLinkStyled href="/#services">AI Automation</FooterLinkStyled>
           <FooterLinkStyled href="/#services">Architecture Audit</FooterLinkStyled>
-          <FooterLinkStyled href="/ai-automation">AI Automation lander →</FooterLinkStyled>
         </ColumnStyled>
         <ColumnStyled>
           <ColumnTitleStyled>Contact</ColumnTitleStyled>
@@ -145,7 +144,7 @@ const Footer = () => {
             Based in Europe, working remotely worldwide.
           </NoteStyled>
           <NoteStyled>
-            15+ years shipping production software. Anthropic-certified on
+            20+ years shipping production software. Anthropic-certified on
             Claude APIs and Claude Code (May 2026).
           </NoteStyled>
         </ColumnStyled>

@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.secondary};
     padding: 0;
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
   html {

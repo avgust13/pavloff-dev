@@ -109,6 +109,20 @@ const ProfileContainerStyled = styled.div`
   flex-shrink: 0;
 `;
 
+const ProfileImageStyled = styled.img`
+  width: 240px;
+  height: 300px;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+
+  @media (max-width: 768px) {
+    width: 200px;
+    height: 250px;
+  }
+`;
+
 const HeroSection = () => {
   return (
     <HeroSectionStyled>
@@ -121,10 +135,14 @@ const HeroSection = () => {
           I work with founders two ways: as your <strong>Fractional AI CTO</strong>{" "}
           ($3&ndash;8K/mo, hands-on technical leadership) or by{" "}
           <strong>building your AI MVP in 90 days</strong> (fixed scope, fixed price).
-          15+ years shipping production software. Anthropic-certified on Claude APIs and agentic workflows.
+          20+ years shipping production software. Anthropic-certified on Claude APIs and agentic workflows.
         </SubheadlineStyled>
         <CtaRowStyled>
-          <PrimaryCtaStyled href="mailto:avgust13@gmail.com?subject=Strategy%20call%20request">
+          <PrimaryCtaStyled
+            href="https://calendar.app.google/q7FtHB7b8GAqKkQA6"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Let&apos;s talk &mdash; book a 30-min call
           </PrimaryCtaStyled>
           <SecondaryCtaStyled href="#services">
@@ -138,11 +156,11 @@ const HeroSection = () => {
         </MicrocopyStyled>
       </CopyContainerStyled>
       <ProfileContainerStyled>
-        <img
-          src="/images/profile.png"
-          alt="Ros Pavloff Profile"
-          width={200}
-          height={246}
+        <ProfileImageStyled
+          src="/images/ros.jpg"
+          alt="Ros Pavloff — Fractional AI CTO"
+          width={240}
+          height={300}
         />
       </ProfileContainerStyled>
     </HeroSectionStyled>

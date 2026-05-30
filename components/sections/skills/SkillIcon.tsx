@@ -1,10 +1,66 @@
-import type React from "react";
 import type { FC } from "react";
-import * as SiIcons from "react-icons/si";
+import type { IconType } from "react-icons";
+import {
+  SiAnthropic,
+  SiOpenai,
+  SiN8N,
+  SiLangchain,
+  SiTensorflow,
+  SiPytorch,
+  SiScikitlearn,
+  SiNodedotjs,
+  SiPython,
+  SiDotnet,
+  SiPostgresql,
+  SiMongodb,
+  SiRedis,
+  SiDocker,
+  SiKubernetes,
+  SiGooglecloud,
+  SiReact,
+  SiTypescript,
+  SiNextdotjs,
+  SiAngular,
+  SiJest,
+  SiGithubactions,
+  SiGraphql,
+  SiOpenapiinitiative,
+} from "react-icons/si";
+import { VscAzure } from "react-icons/vsc";
 import styled from "styled-components";
 
+// Only the icons actually used on the site are imported, so the bundle
+// no longer pulls in the entire react-icons/si set (~2 MB).
+const ICONS: Record<string, IconType> = {
+  Anthropic: SiAnthropic,
+  Openai: SiOpenai,
+  N8N: SiN8N,
+  Langchain: SiLangchain,
+  Tensorflow: SiTensorflow,
+  Pytorch: SiPytorch,
+  Scikitlearn: SiScikitlearn,
+  Nodedotjs: SiNodedotjs,
+  Python: SiPython,
+  Dotnet: SiDotnet,
+  Postgresql: SiPostgresql,
+  Mongodb: SiMongodb,
+  Redis: SiRedis,
+  Docker: SiDocker,
+  Kubernetes: SiKubernetes,
+  Googlecloud: SiGooglecloud,
+  Microsoftazure: VscAzure,
+  React: SiReact,
+  Typescript: SiTypescript,
+  Nextdotjs: SiNextdotjs,
+  Angular: SiAngular,
+  Jest: SiJest,
+  Githubactions: SiGithubactions,
+  Graphql: SiGraphql,
+  Openapi: SiOpenapiinitiative,
+};
+
 type SkillIconProps = {
-  name: string | keyof typeof SiIcons;
+  name: string;
   title?: string;
   size?: number;
   color?: string;
@@ -29,11 +85,15 @@ const IconLabel = styled.span`
   color: #a6bbcc;
 `;
 
-const FallbackLabel = styled.span`
-  font-size: 0.875rem;
+const FallbackChip = styled.span`
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #a6bbcc;
+  border-radius: 6px;
+  font-size: 0.8rem;
   color: #a6bbcc;
-  text-align: center;
-  padding: 12px;
 `;
 
 const SkillIcon: FC<SkillIconProps> = ({
@@ -42,8 +102,7 @@ const SkillIcon: FC<SkillIconProps> = ({
   size = 40,
   color = "#A6BBCC",
 }) => {
-  const iconName = `Si${name}` as keyof typeof SiIcons;
-  const IconComponent = SiIcons[name as keyof typeof SiIcons] || SiIcons[iconName];
+  const IconComponent = ICONS[name];
   return (
     <IconWrapper>
       {IconComponent ? (
@@ -52,7 +111,7 @@ const SkillIcon: FC<SkillIconProps> = ({
           {title && <IconLabel>{title}</IconLabel>}
         </>
       ) : (
-        <FallbackLabel>{title || name}</FallbackLabel>
+        <FallbackChip>{title || name}</FallbackChip>
       )}
     </IconWrapper>
   );
