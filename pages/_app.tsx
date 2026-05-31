@@ -1,29 +1,34 @@
 import type { AppProps } from "next/app";
 import { ThemeProvider, type DefaultTheme } from "styled-components";
-import { Poppins, Inter } from "next/font/google";
+import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import GlobalStyle from "@/components/globalstyles";
 
-import 'bootstrap-icons/font/bootstrap-icons.css';
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-  variable: "--font-poppins",
-});
-
-const inter = Inter({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-mono",
 });
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-grotesk",
+});
+
+// Mono / Dev-tooling — paper-toned terminal palette.
 const theme: DefaultTheme = {
   colors: {
-    primary: "#A6BBCC",
-    secondary: "#FFFFFF",
-    tertiary: "#D9D9D9",
+    paper: "#eceae2",
+    paper2: "#e3e0d6",
+    card: "#f4f2ea",
+    ink: "#1a1a17",
+    inkSoft: "#5b594f",
+    line: "#c9c5b6",
+    line2: "#d8d4c6",
+    green: "#2f7d4f",
+    amber: "#b06d18",
   },
 };
 
@@ -31,7 +36,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <div className={`${poppins.variable} ${inter.variable} ${poppins.className}`}>
+      <div
+        className={`${jetbrainsMono.variable} ${spaceGrotesk.variable} ${jetbrainsMono.className}`}
+      >
         <Component {...pageProps} />
       </div>
     </ThemeProvider>

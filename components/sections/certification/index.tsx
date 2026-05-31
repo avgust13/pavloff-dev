@@ -1,85 +1,63 @@
 import styled from "styled-components";
 
-import Title from "@/components/sections/titlesection";
+import SectionHead from "@/components/sections/titlesection";
+import { Wrap } from "@/components/sharedstyles";
 
 import CertificateBlock from "./certificateblock";
 
-const CertificationSectionStyled = styled.section`
-  max-width: 900px;
-  width: 100%;
+const SectionStyled = styled.section`
+  padding: 76px 0;
 `;
 
-const SubheadingStyled = styled.p`
-  font-size: 18px;
-  line-height: 1.5;
-  color: ${({ theme }) => theme.colors.tertiary};
-  margin: 0 0 30px 0;
-`;
-
-const CertificationContainerStyled = styled.div`
+const CertsGridStyled = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 50px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+
+  @media (max-width: 760px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
-const ShowAllToggleStyled = styled.details`
-  margin-top: 36px;
+const MoreCertsStyled = styled.details`
+  margin-top: 18px;
 
   summary {
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.green};
+    font-size: 12.5px;
+    letter-spacing: 0.04em;
     list-style: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 14px;
-    border: 1px solid ${({ theme }) => theme.colors.primary};
-    border-radius: 6px;
-    transition: background-color 0.2s ease;
   }
 
   summary::-webkit-details-marker {
     display: none;
   }
 
-  summary::after {
-    content: "▾";
-    font-size: 12px;
-    transition: transform 0.2s ease;
-  }
-
-  &[open] summary::after {
-    transform: rotate(180deg);
-  }
-
-  summary:hover {
-    background-color: rgba(166, 187, 204, 0.1);
+  summary::before {
+    content: "$ ";
   }
 `;
 
-const OlderGridStyled = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 50px;
-  margin-top: 30px;
+const OlderGridStyled = styled(CertsGridStyled)`
+  margin-top: 16px;
 `;
 
 type Certificate = {
   name: string;
   month: string;
   year: string;
+  issuer?: string;
 };
 
 const CertificationSection = () => {
   const recent: Certificate[] = [
-    { name: "Building with the Claude API", month: "May", year: "2026" },
-    { name: "AI Fluency Framework & Foundations", month: "May", year: "2026" },
-    { name: "Claude Code in Action", month: "Apr", year: "2026" },
-    { name: "Introduction to Claude Cowork", month: "Apr", year: "2026" },
-    { name: "IBM AI Engineering Specialization", month: "Apr", year: "2024" },
-    { name: "Deep Learning with TensorFlow", month: "Apr", year: "2024" },
+    { name: "Building with the Claude API", month: "May", year: "2026", issuer: "anthropic" },
+    { name: "AI Fluency Framework & Foundations", month: "May", year: "2026", issuer: "anthropic" },
+    { name: "Claude Code in Action", month: "Apr", year: "2026", issuer: "anthropic" },
+    { name: "Introduction to Claude Cowork", month: "Apr", year: "2026", issuer: "anthropic" },
+    { name: "IBM AI Engineering Specialization", month: "Apr", year: "2024", issuer: "ibm" },
+    { name: "Deep Learning with TensorFlow", month: "Apr", year: "2024", issuer: "ibm" },
   ];
 
   const older: Certificate[] = [
@@ -97,37 +75,35 @@ const CertificationSection = () => {
   ];
 
   return (
-    <CertificationSectionStyled id="certifications">
-      <Title name="certifications" />
-      <SubheadingStyled>
-        My six most recent — all AI-focused. Anthropic-issued certifications on
-        Claude APIs, agentic workflows, and Claude Code, plus an IBM AI
-        Engineering specialization.
-      </SubheadingStyled>
-      <CertificationContainerStyled>
-        {recent.map((cert) => (
-          <CertificateBlock
-            key={`${cert.name}-${cert.year}`}
-            name={cert.name}
-            month={cert.month}
-            year={cert.year}
-          />
-        ))}
-      </CertificationContainerStyled>
-      <ShowAllToggleStyled>
-        <summary>Show {older.length} earlier certifications</summary>
-        <OlderGridStyled>
-          {older.map((cert) => (
+    <SectionStyled id="certs">
+      <Wrap>
+        <SectionHead title="My six most recent — all AI-focused." idx="05 · certifications" />
+        <CertsGridStyled>
+          {recent.map((cert) => (
             <CertificateBlock
               key={`${cert.name}-${cert.year}`}
               name={cert.name}
               month={cert.month}
               year={cert.year}
+              issuer={cert.issuer}
             />
           ))}
-        </OlderGridStyled>
-      </ShowAllToggleStyled>
-    </CertificationSectionStyled>
+        </CertsGridStyled>
+        <MoreCertsStyled>
+          <summary>show {older.length} earlier certifications</summary>
+          <OlderGridStyled as="div">
+            {older.map((cert) => (
+              <CertificateBlock
+                key={`${cert.name}-${cert.year}`}
+                name={cert.name}
+                month={cert.month}
+                year={cert.year}
+              />
+            ))}
+          </OlderGridStyled>
+        </MoreCertsStyled>
+      </Wrap>
+    </SectionStyled>
   );
 };
 

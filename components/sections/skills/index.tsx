@@ -1,113 +1,110 @@
 import styled from "styled-components";
-import Title from "@/components/sections/titlesection";
 
-import SkillIcon from "./SkillIcon";
+import SectionHead from "@/components/sections/titlesection";
+import { Wrap } from "@/components/sharedstyles";
 
-const SkillsSectionStyled = styled.section`
-  max-width: 900px;
-  width: 100%;
+const SectionStyled = styled.section`
+  padding: 76px 0;
+  background: ${({ theme }) => theme.colors.paper2};
 `;
 
-const SubheadingStyled = styled.p`
-  font-size: 18px;
-  line-height: 1.5;
-  color: ${({ theme }) => theme.colors.tertiary};
-  margin: 0 0 30px 0;
-`;
-
-const SkillCategoryGridStyled = styled.div`
+const StackGridStyled = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
-  margin-bottom: 60px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+
+  @media (max-width: 760px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
-const CategoryCardStyled = styled.div`
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+const ColumnStyled = styled.div`
+  h4 {
+    font-size: 12px;
+    color: ${({ theme }) => theme.colors.green};
+    margin-bottom: 14px;
+    letter-spacing: 0.04em;
+  }
+
+  h4::before {
+    content: "# ";
+  }
 `;
 
-const CategoryTitleStyled = styled.h3`
-  color: ${({ theme }) => theme.colors.primary};
-  margin-bottom: 20px;
-  font-size: 18px;
-  font-weight: 600;
-  padding-left: 10px;
-  border-left: 4px solid ${({ theme }) => theme.colors.primary};
-`;
-
-const SkillsContainerStyled = styled.div`
+const ChipsStyled = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
-  padding: 0 10px;
+  gap: 7px;
+
+  span {
+    font-size: 12px;
+    padding: 5px 10px;
+    background: ${({ theme }) => theme.colors.card};
+    border: 1px solid ${({ theme }) => theme.colors.line};
+    border-radius: 5px;
+  }
 `;
 
 const SkillsSection = () => {
-  const skillsByCategory = {
-    "AI Stack": [
-      { name: "Anthropic", title: "Claude API" },
-      { name: "Openai", title: "OpenAI" },
-      { name: "N8N", title: "n8n" },
-      { name: "Langchain", title: "LangChain" },
-      { name: "Tensorflow", title: "TensorFlow" },
-      { name: "Pytorch", title: "PyTorch" },
-      { name: "Scikitlearn", title: "scikit-learn" },
-    ],
-    "Backend & Infra": [
-      { name: "Nodedotjs", title: "Node.js" },
-      { name: "Python", title: "Python" },
-      { name: "Dotnet", title: ".NET" },
-      { name: "Postgresql", title: "PostgreSQL" },
-      { name: "Mongodb", title: "MongoDB" },
-      { name: "Redis", title: "Redis" },
-      { name: "Docker", title: "Docker" },
-      { name: "Kubernetes", title: "Kubernetes" },
-      { name: "Googlecloud", title: "GCP" },
-      { name: "Microsoftazure", title: "Azure" },
-    ],
-    Frontend: [
-      { name: "React", title: "React" },
-      { name: "Typescript", title: "TypeScript" },
-      { name: "Nextdotjs", title: "Next.js" },
-      { name: "Angular", title: "Angular" },
-    ],
-    "Quality & Ops": [
-      { name: "Playwright", title: "Playwright" },
-      { name: "Jest", title: "Jest" },
-      { name: "Githubactions", title: "GitHub Actions" },
-      { name: "Graphql", title: "GraphQL" },
-      { name: "Openapi", title: "REST" },
-      { name: "Grpc", title: "gRPC" },
-    ],
-  };
+  const stack: { key: string; chips: string[] }[] = [
+    {
+      key: "ai_stack",
+      chips: [
+        "Claude API",
+        "OpenAI",
+        "n8n",
+        "LangChain",
+        "TensorFlow",
+        "PyTorch",
+        "scikit-learn",
+      ],
+    },
+    {
+      key: "backend_infra",
+      chips: [
+        "Node.js",
+        "Python",
+        ".NET",
+        "PostgreSQL",
+        "MongoDB",
+        "Redis",
+        "Docker",
+        "Kubernetes",
+        "GCP",
+        "Azure",
+      ],
+    },
+    {
+      key: "frontend",
+      chips: ["React", "TypeScript", "Next.js", "Angular"],
+    },
+    {
+      key: "quality_ops",
+      chips: ["Playwright", "Jest", "GitHub Actions", "GraphQL", "REST", "gRPC"],
+    },
+  ];
 
   return (
-    <SkillsSectionStyled id="skills">
-      <Title name="stack" />
-      <SubheadingStyled>
-        The stack I work with daily. Not a CV checklist — these are the tools I
-        actually reach for when shipping.
-      </SubheadingStyled>
-      <SkillCategoryGridStyled>
-        {Object.entries(skillsByCategory).map(([category, skills]) => (
-          <CategoryCardStyled key={category}>
-            <CategoryTitleStyled>{category}</CategoryTitleStyled>
-            <SkillsContainerStyled>
-              {skills.map((skill) => (
-                <SkillIcon
-                  key={skill.name}
-                  name={skill.name}
-                  title={skill.title}
-                />
-              ))}
-            </SkillsContainerStyled>
-          </CategoryCardStyled>
-        ))}
-      </SkillCategoryGridStyled>
-    </SkillsSectionStyled>
+    <SectionStyled id="stack">
+      <Wrap>
+        <SectionHead
+          title="The tools I actually reach for when shipping."
+          idx="04 · stack"
+        />
+        <StackGridStyled>
+          {stack.map((col) => (
+            <ColumnStyled key={col.key}>
+              <h4>{col.key}</h4>
+              <ChipsStyled>
+                {col.chips.map((chip) => (
+                  <span key={chip}>{chip}</span>
+                ))}
+              </ChipsStyled>
+            </ColumnStyled>
+          ))}
+        </StackGridStyled>
+      </Wrap>
+    </SectionStyled>
   );
 };
 

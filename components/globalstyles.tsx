@@ -1,24 +1,23 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-  html,
-  body {
-    background-color: #221F1F;
-    color: ${({ theme }) => theme.colors.secondary};
-    padding: 0;
+  * {
+    box-sizing: border-box;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 0;
   }
 
   html {
     scroll-behavior: smooth;
   }
 
-  h1 {
-    color: ${({ theme }) => theme.colors.primary};
-    font-weight: 700;
-    font-size: 46px; 
-    margin: 0 0 30px 0;
+  body {
+    background: ${({ theme }) => theme.colors.paper};
+    color: ${({ theme }) => theme.colors.ink};
+    font-family: var(--font-mono), ui-monospace, Menlo, monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
 
   a {
@@ -26,22 +25,22 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-  * {
-    box-sizing: border-box;
-  }
-
   ::-webkit-scrollbar {
-      width: 12px; 
-      height: 12px; 
+    width: 12px;
+    height: 12px;
   }
 
   ::-webkit-scrollbar-track {
-      background: #383838;
+    background: ${({ theme }) => theme.colors.paper2};
   }
 
   ::-webkit-scrollbar-thumb {
-      background-color: ${({ theme }) => theme.colors.primary};
-      border-radius: 3px;
+    background-color: ${({ theme }) => theme.colors.line};
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: ${({ theme }) => theme.colors.green};
   }
 `;
 

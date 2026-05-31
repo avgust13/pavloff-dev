@@ -1,113 +1,78 @@
 import styled from "styled-components";
 
+import { Wrap, Btn, Blink } from "@/components/sharedstyles";
+
 const BOOKING_URL = "https://calendar.app.google/q7FtHB7b8GAqKkQA6";
 
-const HeaderStyled = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+const HeaderStyled = styled.header`
   position: sticky;
-  padding: 0 100px 0 70px;
-  height: 60px;
   top: 0;
-  width: 100%;
-  background-color: #221F1F;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-
-  @media (max-width: 768px) {
-    padding: 0 16px;
-  }
+  z-index: 50;
+  background: rgba(236, 234, 226, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid ${({ theme }) => theme.colors.line};
 `;
 
-const BrandContainerStyled = styled.div`
-  font-family: var(--font-inter), sans-serif;
-  font-weight: 700;
-  font-size: 22px;
-`;
-
-const DomainStyled = styled.span`
-  font-weight: 400;
-`;
-
-const RightGroupStyled = styled.div`
+const NavRowStyled = styled.div`
   display: flex;
   align-items: center;
-  gap: 28px;
-`;
-
-const Nav = styled.nav`
-  display: flex;
   justify-content: space-between;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
+  height: 60px;
 `;
 
-const NavList = styled.ul`
+const BrandStyled = styled.a`
+  font-weight: 700;
+  font-size: 15px;
   display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.01em;
+  color: ${({ theme }) => theme.colors.ink};
 `;
 
-const NavItem = styled.li`
-  margin-left: 30px;
+const NavLinksStyled = styled.nav`
+  display: flex;
+  gap: 26px;
 
   a {
-    text-decoration: none;
-    color: ${({ theme }) => theme.colors.tertiary};
-    font-size: 16px;
-    font-weight: 400;
-
-    &:hover {
-      color: ${({ theme }) => theme.colors.secondary};
-    }
+    font-size: 13px;
+    color: ${({ theme }) => theme.colors.inkSoft};
   }
-`;
 
-const BookButtonStyled = styled.a`
-  display: inline-block;
-  padding: 9px 18px;
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: #221F1F;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 6px;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  a::before {
+    content: "~/";
+    color: ${({ theme }) => theme.colors.line};
+  }
 
-  &:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 14px rgba(166, 187, 204, 0.25);
+  a:hover {
+    color: ${({ theme }) => theme.colors.green};
+  }
+
+  @media (max-width: 840px) {
+    display: none;
   }
 `;
 
 const Header = () => {
   return (
     <HeaderStyled>
-      <BrandContainerStyled>
-        pavloff<DomainStyled>.dev</DomainStyled>
-      </BrandContainerStyled>
-      <RightGroupStyled>
-        <Nav>
-          <NavList>
-            <NavItem><a href="/#about">Why me</a></NavItem>
-            <NavItem><a href="/#services">Services</a></NavItem>
-            <NavItem><a href="/#case-studies">Case Studies</a></NavItem>
-            <NavItem><a href="/#faq">FAQ</a></NavItem>
-          </NavList>
-        </Nav>
-        <BookButtonStyled
-          href={BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Book a call
-        </BookButtonStyled>
-      </RightGroupStyled>
+      <Wrap>
+        <NavRowStyled>
+          <BrandStyled href="#top">
+            pavloff.dev
+            <Blink />
+          </BrandStyled>
+          <NavLinksStyled>
+            <a href="#why">why</a>
+            <a href="#services">services</a>
+            <a href="#work">work</a>
+            <a href="#faq">faq</a>
+          </NavLinksStyled>
+          <Btn href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+            book-a-call
+          </Btn>
+        </NavRowStyled>
+      </Wrap>
     </HeaderStyled>
   );
 };

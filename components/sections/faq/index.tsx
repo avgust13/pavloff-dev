@@ -1,76 +1,61 @@
 import styled from "styled-components";
 
-import Title from "@/components/sections/titlesection";
+import SectionHead from "@/components/sections/titlesection";
+import { Wrap } from "@/components/sharedstyles";
 
-const FaqSectionStyled = styled.section`
-  max-width: 900px;
-  width: 100%;
-`;
-
-const SubheadingStyled = styled.p`
-  font-size: 18px;
-  line-height: 1.5;
-  color: ${({ theme }) => theme.colors.tertiary};
-  margin: 0 0 30px 0;
+const SectionStyled = styled.section`
+  padding: 76px 0;
+  background: ${({ theme }) => theme.colors.paper2};
 `;
 
 const FaqListStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 60px;
-`;
-
-const FaqItemStyled = styled.details`
-  background-color: #f5f5f514;
-  border-radius: 8px;
-  padding: 0;
-  transition: background-color 0.2s ease;
-  overflow: hidden;
-
-  &[open] {
-    background-color: #f5f5f51f;
+  details {
+    border: 1px solid ${({ theme }) => theme.colors.line};
+    border-radius: 8px;
+    background: ${({ theme }) => theme.colors.card};
+    margin-bottom: 10px;
+    overflow: hidden;
   }
 
   summary {
     cursor: pointer;
-    padding: 18px 22px;
     list-style: none;
+    padding: 18px 22px;
     display: flex;
-    justify-content: space-between;
+    gap: 14px;
     align-items: flex-start;
-    gap: 16px;
+    font-family: var(--font-grotesk), sans-serif;
     font-size: 16px;
     font-weight: 600;
-    color: ${({ theme }) => theme.colors.secondary};
-    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: ${({ theme }) => theme.colors.ink};
   }
 
   summary::-webkit-details-marker {
     display: none;
   }
 
-  summary::after {
-    content: "+";
-    font-size: 22px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.colors.primary};
-    line-height: 1;
-    transition: transform 0.2s ease;
-    flex-shrink: 0;
+  summary .q {
+    color: ${({ theme }) => theme.colors.green};
+    font-family: var(--font-mono), monospace;
+    font-size: 14px;
+    flex: none;
   }
 
-  &[open] summary::after {
-    content: "−";
-    transform: rotate(0deg);
+  details[open] summary {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.line};
   }
-`;
 
-const AnswerStyled = styled.div`
-  padding: 0 22px 20px 22px;
-  font-size: 14px;
-  line-height: 1.6;
-  color: ${({ theme }) => theme.colors.tertiary};
+  details p {
+    padding: 16px 22px 20px 46px;
+    color: ${({ theme }) => theme.colors.inkSoft};
+    font-size: 14px;
+  }
+
+  details p::before {
+    content: "→ ";
+    color: ${({ theme }) => theme.colors.green};
+  }
 `;
 
 type FaqEntry = {
@@ -115,21 +100,25 @@ const FaqSection = () => {
   ];
 
   return (
-    <FaqSectionStyled id="faq">
-      <Title name="faq" />
-      <SubheadingStyled>
-        Eight questions founders ask me before our first call. If yours isn&apos;t
-        here, just email me.
-      </SubheadingStyled>
-      <FaqListStyled>
-        {faqs.map((item) => (
-          <FaqItemStyled key={item.q}>
-            <summary>{item.q}</summary>
-            <AnswerStyled>{item.a}</AnswerStyled>
-          </FaqItemStyled>
-        ))}
-      </FaqListStyled>
-    </FaqSectionStyled>
+    <SectionStyled id="faq">
+      <Wrap>
+        <SectionHead
+          title="Eight questions founders ask before our first call."
+          idx="06 · faq"
+        />
+        <FaqListStyled>
+          {faqs.map((item, i) => (
+            <details key={item.q}>
+              <summary>
+                <span className="q">Q{i + 1}</span>
+                {item.q}
+              </summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </FaqListStyled>
+      </Wrap>
+    </SectionStyled>
   );
 };
 

@@ -1,69 +1,58 @@
 import styled from "styled-components";
 
-import Title from "@/components/sections/titlesection";
+import SectionHead from "@/components/sections/titlesection";
+import { Wrap } from "@/components/sharedstyles";
 
-const AboutSectionStyled = styled.section`
-  max-width: 900px;
-  width: 100%;
+const SectionStyled = styled.section`
+  padding: 76px 0;
 `;
 
-const SubheadingStyled = styled.p`
-  font-size: 18px;
-  line-height: 1.5;
-  color: ${({ theme }) => theme.colors.tertiary};
-  margin: 0 100px 30px 100px;
-
-  @media (max-width: 768px) {
-    margin: 0 0 24px 0;
-    font-size: 16px;
-  }
-`;
-
-const TilesGridStyled = styled.div`
+const WhyGridStyled = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin: 0 100px 30px 100px;
+  gap: 1px;
+  background: ${({ theme }) => theme.colors.line};
+  border: 1px solid ${({ theme }) => theme.colors.line};
 
-  @media (max-width: 768px) {
+  @media (max-width: 680px) {
     grid-template-columns: 1fr;
-    margin: 0 0 24px 0;
-    gap: 16px;
   }
 `;
 
-const TileStyled = styled.div`
-  background-color: #f5f5f514;
-  border-radius: 8px;
-  padding: 22px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+const WhyCardStyled = styled.div`
+  background: ${({ theme }) => theme.colors.card};
+  padding: 30px 30px 34px;
 `;
 
-const TileHeadingStyled = styled.h3`
-  font-size: 18px;
+const TagStyled = styled.span`
+  display: block;
+  font-size: 12px;
+  color: ${({ theme }) => theme.colors.green};
+  margin-bottom: 14px;
+`;
+
+const CardHeadingStyled = styled.h3`
+  font-family: var(--font-grotesk), sans-serif;
   font-weight: 600;
-  color: ${({ theme }) => theme.colors.secondary};
-  margin: 0;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  color: ${({ theme }) => theme.colors.ink};
+  margin-bottom: 10px;
 `;
 
-const TileBodyStyled = styled.p`
+const CardBodyStyled = styled.p`
+  color: ${({ theme }) => theme.colors.inkSoft};
   font-size: 14px;
-  line-height: 1.55;
-  color: ${({ theme }) => theme.colors.tertiary};
-  margin: 0;
 `;
 
-const BreadthLineStyled = styled.p`
-  margin: 0 100px;
-  font-size: 13px;
-  font-style: italic;
-  color: ${({ theme }) => theme.colors.tertiary};
-  opacity: 0.75;
+const FootNoteStyled = styled.p`
+  margin-top: 22px;
+  color: ${({ theme }) => theme.colors.inkSoft};
+  font-size: 13.5px;
 
-  @media (max-width: 768px) {
-    margin: 0;
+  &::before {
+    content: "// ";
+    color: ${({ theme }) => theme.colors.green};
   }
 `;
 
@@ -88,24 +77,27 @@ const AboutSection = () => {
   ];
 
   return (
-    <AboutSectionStyled id="about">
-      <Title name="why me" />
-      <SubheadingStyled>
-        Why founders hire me instead of an agency or a junior team.
-      </SubheadingStyled>
-      <TilesGridStyled>
-        {tiles.map((tile) => (
-          <TileStyled key={tile.heading}>
-            <TileHeadingStyled>{tile.heading}</TileHeadingStyled>
-            <TileBodyStyled>{tile.body}</TileBodyStyled>
-          </TileStyled>
-        ))}
-      </TilesGridStyled>
-      <BreadthLineStyled>
-        Background also includes algorithmic trading systems, computer vision
-        pipelines, and blockchain dApps. If that&apos;s what you need, ask.
-      </BreadthLineStyled>
-    </AboutSectionStyled>
+    <SectionStyled id="why">
+      <Wrap>
+        <SectionHead
+          title="Why founders hire me instead of an agency or a junior team."
+          idx="01 · why_me"
+        />
+        <WhyGridStyled>
+          {tiles.map((tile, i) => (
+            <WhyCardStyled key={tile.heading}>
+              <TagStyled>[{String(i + 1).padStart(2, "0")}]</TagStyled>
+              <CardHeadingStyled>{tile.heading}</CardHeadingStyled>
+              <CardBodyStyled>{tile.body}</CardBodyStyled>
+            </WhyCardStyled>
+          ))}
+        </WhyGridStyled>
+        <FootNoteStyled>
+          Background also includes algorithmic trading systems, computer vision
+          pipelines, and blockchain dApps. If that&apos;s what you need, ask.
+        </FootNoteStyled>
+      </Wrap>
+    </SectionStyled>
   );
 };
 

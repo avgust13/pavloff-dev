@@ -1,61 +1,75 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 const Container = styled.div`
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  height: 100vh;
+  width: 100%;
   min-height: 100vh;
 `;
 
 const Main = styled.main`
   width: 100%;
-  display: flex;
-  flex-direction: column;
+`;
+
+// Centered content column shared by every section.
+const Wrap = styled.div`
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+`;
+
+// `$ command`-style button. Solid ink by default, outlined when $ghost.
+const Btn = styled.a<{ $ghost?: boolean }>`
+  display: inline-flex;
   align-items: center;
-  padding: 0 20px;
-`;
+  gap: 8px;
+  font-family: var(--font-mono), monospace;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 16px;
+  background: ${({ theme }) => theme.colors.ink};
+  color: ${({ theme }) => theme.colors.paper};
+  border: 1px solid ${({ theme }) => theme.colors.ink};
+  transition: all 0.15s ease;
 
-const Title = styled.h1`
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-  text-align: center;
-  text-decoration: none;
-
-  a {
-    color: ${({ theme }) => theme.colors.secondary};
-    text-decoration: none;
-    &:hover,
-    :focus,
-    :active {
-      text-decoration: underline;
-    }
+  &::before {
+    content: "$ ";
+    opacity: 0.6;
   }
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.green};
+    border-color: ${({ theme }) => theme.colors.green};
+    color: #fff;
+  }
+
+  ${({ $ghost }) =>
+    $ghost &&
+    css`
+      background: transparent;
+      color: ${({ theme }) => theme.colors.ink};
+
+      &::before {
+        content: "";
+      }
+
+      &:hover {
+        background: ${({ theme }) => theme.colors.ink};
+        color: ${({ theme }) => theme.colors.paper};
+      }
+    `}
 `;
 
-const Description = styled.p`
-  text-align: center;
-  line-height: 1.5;
-  font-size: 1.5rem;
-`;
-const CodeTag = styled.code`
-  background: #fafafa;
-  border-radius: 5px;
-  margin: 0 0.75rem;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family:
-    Menlo,
-    Monaco,
-    Lucida Console,
-    Liberation Mono,
-    DejaVu Sans Mono,
-    Bitstream Vera Sans Mono,
-    Courier New,
-    monospace;
+const blink = keyframes`
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 `;
 
-export { Container, Main, Title, Description, CodeTag };
+// Blinking terminal cursor block.
+const Blink = styled.span`
+  width: 9px;
+  height: 16px;
+  background: ${({ theme }) => theme.colors.green};
+  display: inline-block;
+  animation: ${blink} 1.1s steps(2) infinite;
+`;
+
+export { Container, Main, Wrap, Btn, Blink };
